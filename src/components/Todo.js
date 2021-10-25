@@ -1,22 +1,14 @@
 import React from "react";
 
-export default function Todo(props) {
+function FilterButton(props) {
     return (
-        <li className="todo stack-small">
-          <div className="c-cb">
-            <input id={props.id} type="checkbox" defaultChecked={props.completed} />
-            <label className="todo-label" htmlFor={props.id}>
-              {props.name}
-            </label>
-          </div>
-          <div className="btn-group">
-            <button type="button" className="btn">
-              Edit <span className="visually-hidden">{props.name}</span>
-            </button>
-            <button type="button" className="btn btn__danger">
-              Delete <span className="visually-hidden">{props.name}</span>
-            </button>
-          </div>
-        </li>
-    );
-}
+        <button type="button" className="btn toggle-btn" aria-pressed={props.isPressed}
+        onClick={() => props.setFilter(props.name)}>
+            <span className="visually-hidden">Show </span>
+            <span>{props.name}</span>
+            <span className="visually-hidden"> tasks</span>
+        </button>
+    )
+} 
+
+export default FilterButton;
